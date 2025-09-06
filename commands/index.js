@@ -33,13 +33,14 @@ export const commands = new Map([
 export async function Command(cmd, msg, args, context) {
   const command = commands.get(cmd);
   if (!command) {
-  return false; 
-  }try{
-  await command.execute(msg, args, context);
-  return true; 
-  } catch (error) {
-  console.error(`${cmd}:`, error);
-  msg.reply('_err_');
-  return false;
+    return false;
   }
-    }
+  try {
+    await command.execute(msg, args, context);
+    return true;
+  } catch (error) {
+    console.error(`${cmd}:`, error);
+    msg.reply('_err_');
+    return false;
+  }
+}

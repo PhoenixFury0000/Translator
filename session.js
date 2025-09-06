@@ -13,8 +13,9 @@ export async function SessionCode(session, fd) {
     const n = path.join(fd, "creds.json");
     const conn = typeof res.data === "string" ? res.data : JSON.stringify(res.data);
     fs.writeFileSync(n, conn);
-    console.log("✅ connected");
+    console.log("Session credentials written");
   } catch (error) {
-    console.error(error.message);
+    console.error("SessionCode error:", error?.message || error);
   }
 }
+

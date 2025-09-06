@@ -23,8 +23,8 @@ export const wame = {
       const n = s_id.split('@')[0];  
       const w = `https://wa.me/${n}`;  
       await sock.sendMessage(msg.from, {  
-        text: `*WA Link${n}:*\n${w}`,  
-        mentions: [n]  
+        text: `*WA Link for ${n}:*\n${w}`,  
+        mentions: [s_id]  
       }, { quoted: m });
 
     } catch (e) {
